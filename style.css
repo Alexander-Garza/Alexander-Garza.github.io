@@ -28,33 +28,32 @@ body
 	align-items: center;
 	width: 90%;
 	margin: auto;
-
 }
 
 a:link
 {
-	color: inherit;
+	color: cadetblue;
 	text-decoration: none;
 	font-size: inherit;
 }
 
 a:visited
 {
-	color: inherit;
+	color: cadetblue;
 	text-decoration: none;
 	font-size: inherit;
 }
 
 a:hover
 {
-	color: inherit;
+	color: cadetblue;
 	text-decoration: none;
 	font-size: inherit;
 }
 
 a:active
 {
-	color: inherit;
+	color: cadetblue;
 	text-decoration: none;
 	font-size: inherit;
 }
@@ -73,15 +72,7 @@ a:active
 	line-height: 1;
 	font-size: 2.5rem;
 	color: cornflowerblue;
-}
-
-.profileProjects
-{
-display:none;
-	font-size: 3rem;
-	padding-top: 10vh;
-	width: 90%;
-	padding-bottom: 2vh;
+	padding-bottom: 13vh;
 }
 
 
@@ -100,7 +91,12 @@ display:none;
 	font-size: 2.5rem;
 	color: #c9ad69;
 	font-weight: bold;
-margin: auto;
+	margin: auto;
+}
+.projectTitle:hover
+{
+	color: white;
+	cursor: pointer;
 }
 
 .projectSection

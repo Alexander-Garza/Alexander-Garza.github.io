@@ -11,92 +11,164 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1 class="profileName">Alexander Garza</h1>
-  <h2 class="profileGithub"><a href="https://github.com/Alexander-Garza">github</a></h2>
-  <div id="windowsPlatformLayer" class="project">
-	  <button class="projectTitle">Windows Platform Layer</button>
-	  <div class="projectSection">
-		  <div class="projectSectionTitle">1. WinMain</div>
-		  <div class="projectSectionText">
-		  First, we start with WinMain. This is the main entry point for windows apps.
-		  </div>
-		  <pre class="projectCode">
+<h1 class="profileName">Alexander Garza</h1>
+<h2 class="profileGithub"><a target="_blank" href="https://github.com/Alexander-Garza">github</a></h2>
+
+<div id="windowsPlatformLayer" class="project">
+<button class="projectTitle">Windows Platform Layer</button>
+<div class="projectSection">
+	<div class="projectSectionTitle">0. Source Code</div>
+	<div class="projectSectionText">
+	The source code for the finished program can be found here: <a target="_blank" href="https://github.com/Alexander-Garza/windowsPlatformLayer">https://github.com/Alexander-Garza/windowsPlatformLayer</a>
+	</div>
+
+	<div class="projectSectionTitle">1. WinMain</div>
+	<div class="projectSectionText">
+	First, we start with WinMain. This is the main entry point for windows apps.
+	</div>
+	<pre class="projectCode">
+#include &ltwindows.h&gt
+
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, INT nCmdShow)
 {
     return 0;
-}
-		  </pre>
-		  <div class="projectSectionText">
-		  For more info visit: <a href="https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point">https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point</a>.
-		  </div>
-		  <div class="projectSectionText">
-		  Alternatively, you can make a console app which will have a seperate console window the application is launched.
-		  </div>
-		  <pre class="projectCode">
-int main()
-{
-    return 0;
-}
-		  </pre>
-		  <div class="projectSectionText">
-		  For more info visit: <a href="https://docs.microsoft.com/en-us/cpp/build/vscpp-step-2-build?view=msvc-170">https://docs.microsoft.com/en-us/cpp/build/vscpp-step-2-build?view=msvc-170</a>.
-		  </div>
+}</pre>
+	<div class="projectSectionText">
+	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point">https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point</a>
+	</div>
 
-		  <div class="projectSectionTitle">2. Callback Function</div>
-		  <div class="projectSectionText">
-		  Next, we need a callback function. This function recieves unhandled window messages sent to our application. The following code is an example of how to handle window close message.
-		  </div>
-		  <pre class="projectCode">
+	<div class="projectSectionTitle">2. Callback Function</div>
+	<div class="projectSectionText">
+	Next, we need a callback function. This function recieves unhandled window messages sent to our application. The following code is an example of how to handle window close message.
+	</div>
+	<pre class="projectCode">
 LRESULT CALLBACK MainWndProc(
-    HWND hwnd,        // handle to window
-    UINT uMsg,        // message identifier
-    WPARAM wParam,    // first message parameter
-    LPARAM lParam)    // second message parameter
+		HWND hwnd,        // handle to window
+		UINT uMsg,        // message identifier
+		WPARAM wParam,    // first message parameter
+		LPARAM lParam)    // second message parameter
 { 
- 
-    switch (uMsg) 
-    { 
-        case WM_CREATE: 
-            // Initialize the window. 
-            return 0; 
- 
-        case WM_PAINT: 
-            // Paint the window's client area. 
-            return 0; 
- 
-        case WM_SIZE: 
-            // Set the size and position of the window. 
-            return 0; 
- 
-        case WM_DESTROY: 
-            // Clean up window-specific data objects. 
-            return 0; 
- 
-        // 
-        // Process other messages. 
-        // 
- 
-        default: 
-            return DefWindowProc(hwnd, uMsg, wParam, lParam); 
-    } 
-    return 0; 
-}
-		  </pre>
-		  <div class="projectSectionText">
-		  For a list of window messages: <a href="https://docs.microsoft.com/en-us/cpp/build/vscpp-step-2-build?view=msvc-170">https://docs.microsoft.com/en-us/cpp/build/vscpp-step-2-build?view=msvc-170</a>.
-		  </div>
-		  <div class="projectSectionTitle">3. Setting Up A Window</div>
-	  </div>
-  </div>
+	LRESULT result = 0;
+	switch (uMsg) 
+	{ 
+		case WM_CREATE: 
+			// Initialize the window. 
+			break;
+
+		case WM_PAINT: 
+			// Paint the window's client area. 
+			break;
+
+		case WM_SIZE: 
+			// Set the size and position of the window. 
+			break;
+
+		case WM_DESTROY: 
+			// Clean up window-specific data objects. 
+			break;
+
+			// 
+			// Process other messages. 
+			// 
+
+		default: 
+			result = DefWindowProc(hwnd, uMsg, wParam, lParam); 
+	} 
+	return result; 
+}</pre>
+	<div class="projectSectionText">
+	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues">https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues</a>
+	</div>
+
+	<div class="projectSectionTitle">3. Setting Up A Window</div>
+	<div class="projectSectionText">
+	Now we need to fill out information for creating a window. This is done by registering a window class.
+	</div>
+	<pre class="projectCode">
+WNDCLASSA windowClass = {};
+windowClass.style 			= CS_HREDRAW|CS_VREDRAW|CS_OWNDC;
+windowClass.lpfnWndProc 	= MainWndProc;
+windowClass.hInstance 		= hPrevInstance;
+windowClass.hCursor 		= LoadCursor(0, IDC_ARROW);
+windowClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+windowClass.hIcon         = LoadIcon(NULL,  IDI_APPLICATION);
+windowClass.lpszClassName = "windowClassName";
+
+ATOM windowClassIsRegistered = RegisterClassA(&windowClass);</pre>
+	<div class="projectSectionText">
+	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassa">https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassa</a>
+	</div>
+
+	<div class="projectSectionTitle">4. Creating A Window</div>
+	<div class="projectSectionText">
+	Once we have a window class register, we are ready to create a window.
+	</div>
+	<pre class="projectCode">
+unsigned int windowWidth = 1920;
+unsigned int windowHeight = 1080;
+HWND windowHandle = CreateWindowExA(
+		0, 
+		windowClass.lpszClassName, 
+		"Application Name", 
+		WS_OVERLAPPEDWINDOW, 
+		CW_USEDEFAULT, 
+		CW_USEDEFAULT, 
+		windowWidth, 
+		windowHeight, 
+		0, 
+		0, 
+		hPrevInstance, 
+		0);</pre>
+	<div class="projectSectionText">
+	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa</a>
+	</div>
+
+	<div class="projectSectionTitle">5. Setting Up A Loop</div>
+	<div class="projectSectionText">
+	Now we need to create a loop so our app doesn't close till we tell it to.
+	</div>
+	<pre class="projectCode">
+unsigned int isRunning = true;
+while(isRunning)
+{
+}</pre>
+
+	<div class="projectSectionTitle">6. Process Keyboard Input</div>
+	<div class="projectSectionText">
+	There are two ways of getting input on windows. One way is to get the keyState. 
+	For example:
+	</div>
+	<pre class="projectCode">
+SHORT jKeyStatus = GetKeyState("J");
+if(jKeyStatus
+</pre>
+	<div class="projectSectionText">
+	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate</a>
+	</div>
+	<div class="projectSectionText">
+	However the way I prefer to do it is by processing window messages. Windows will send our application WM_Key. First we need to get a message with the function PeekMessage
+	</div>
+
+
+</div>
+
+<div id="OpenGLOnWindows" class="project">
+<button class="projectTitle">OpenGL on Windows</button>
+<div class="projectSection">
+	<div class="projectSectionTitle">Coming soon</div>
+</div>
+</div>
+
 </body>
 
 <script>
 var projectTitles = document.querySelectorAll(".projectTitle");
 for(let i = 0; i < projectTitles.length; i++)
 {
-	projectTitles[i].addEventListener("click", collapseSection);
+	projectTitles[i].addEventListener("click", toggleSection);
+	projectTitles[i].nextElementSibling.style.display = 'none';
 }
-function collapseSection()
+function toggleSection()
 {
 	if(this.nextElementSibling.style.display == 'none')
 	{

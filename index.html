@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="icon" href="icon.svg" sizes="any" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
@@ -42,6 +43,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine,
 	Next, we need a callback function. This function recieves unhandled window messages sent to our application. The following code is an example of how to handle window close message.
 	</div>
 	<pre class="projectCode">
+unsigned int isRunning = 1;
 LRESULT CALLBACK MainWndProc(
 		HWND hwnd,        // handle to window
 		UINT uMsg,        // message identifier
@@ -65,6 +67,7 @@ LRESULT CALLBACK MainWndProc(
 
 		case WM_DESTROY: 
 			// Clean up window-specific data objects. 
+			isRunning = 0;
 			break;
 
 			// 
@@ -101,7 +104,7 @@ ATOM windowClassIsRegistered = RegisterClassA(&windowClass);</pre>
 
 	<div class="projectSectionTitle">4. Creating A Window</div>
 	<div class="projectSectionText">
-	Once we have a window class register, we are ready to create a window.
+	Once we have a window class register, we are ready to create a window. 
 	</div>
 	<pre class="projectCode">
 unsigned int windowWidth = 1920;
@@ -118,7 +121,12 @@ HWND windowHandle = CreateWindowExA(
 		0, 
 		0, 
 		hPrevInstance, 
-		0);</pre>
+		0);
+ShowWindow(windowHandle, SW_SHOW);
+UpdateWindow(windowHandle);</pre>
+	<div class="projectSectionText">
+	We choose to show window after creating it via ShowWindow(). UpdateWindow() creates a paint message that our callback function will take care of. Alternatively, our windowStyle attribute could be set to WS_OVERLAPPED|WS_VISIBLE.
+	</div>
 	<div class="projectSectionText">
 	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa</a>
 	</div>
@@ -128,10 +136,13 @@ HWND windowHandle = CreateWindowExA(
 	Now we need to create a loop so our app doesn't close till we tell it to.
 	</div>
 	<pre class="projectCode">
-unsigned int isRunning = true;
 while(isRunning)
 {
 }</pre>
+	<div class="projectSectionText">
+	We currently aren't able to escape this loop. So next let's add some input processing to our application.
+	</div>
+
 
 	<div class="projectSectionTitle">6. Process Keyboard Input</div>
 	<div class="projectSectionText">
@@ -139,17 +150,77 @@ while(isRunning)
 	For example:
 	</div>
 	<pre class="projectCode">
-SHORT jKeyStatus = GetKeyState("J");
-if(jKeyStatus
-</pre>
+int jKeyCode = (int)'J';
+SHORT jKeyStatus = GetKeyState(jKeyCode);
+unsigned int jKeyDown = (jKeyStatus & 0x8000);
+if(jKeyDown)
+{
+	isRunning = 0;
+}</pre>
 	<div class="projectSectionText">
 	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate</a>
 	</div>
 	<div class="projectSectionText">
-	However the way I prefer to do it is by processing window messages. Windows will send our application WM_Key. First we need to get a message with the function PeekMessage
+	However the way I prefer to do it is by processing window messages. First we need to loop through the messages that windows sent using the PeekMessage() function. Then we can process it with a switch statement. 
+	In our app we only handle key presses. It is possible to handle more messages such as: WM_QUIT, WM_LBUTTONDOWN, WM_PAINT, and many others. However, there are messages which are sent directly to the callback function such as: WM_SIZE, WM_DESTROY and others.
 	</div>
-
-
+	<pre class="projectCode">
+MSG message;
+while(isRunning)
+{
+	// Process Input Messages //
+	while(1)
+	{
+		BOOL gotMessage = FALSE;
+		// NOTE: We don't want to handle WM_PAINT messages here
+		gotMessage = PeekMessage(&message, 0, 0, WM_PAINT -1, PM_REMOVE);
+		if(!gotMessage)
+		{
+			gotMessage = PeekMessage(&message, 0, WM_PAINT+1, 0xFFFFFFFF, PM_REMOVE);
+		}
+		if(!gotMessage)
+		{
+			break;
+		}
+		switch(message.message)
+		{
+			case WM_SYSKEYDOWN:
+			case WM_SYSKEYUP:
+			case WM_KEYDOWN:
+			case WM_KEYUP:
+				unsigned int keyCode = (unsigned int)message.wParam;
+				unsigned int altKeyWasDown = (message.lParam & (1 &lt&lt 29));
+				unsigned int wasDown = ((message.lParam & (1 &lt&lt 30)) != 0);
+				unsigned int isDown = ((message.lParam & (1 &lt&lt 31)) == 0);
+				if(wasDown != isDown)
+				{
+					if(isDown)
+					{
+						if((keyCode == VK_F4) && altKeyWasDown)
+						{
+							isRunning = 0;
+						}
+					}
+					else if(wasDown)
+					{
+					}
+				}
+				break;
+			default:
+				// NOTE: The rest we send to callback function
+				TranslateMessage(&message);
+				DispatchMessageA(&message);
+				break;
+		}
+	}
+}</pre>
+	<div class="projectSectionTitle">7. Process Mouse Input</div>
+	<div class="projectSectionText">
+	coming soon...
+	</div>
+	<pre class="projectCode">
+	</pre>
+	
 </div>
 
 <div id="OpenGLOnWindows" class="project">

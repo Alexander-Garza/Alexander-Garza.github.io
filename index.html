@@ -1,93 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Alexander Garza</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="./style.css" />
-  <link rel="icon" href="icon.svg" sizes="any" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-<h1 class="profileName">Alexander Garza</h1>
-<h2 class="profileGithub"><a target="_blank" href="https://github.com/Alexander-Garza">github</a></h2>
+    <head>
+        <title>Alexander Garza</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="" />
+        <style>
+:root{
+}
 
-<div id="windowsPlatformLayer" class="project">
-<button class="projectTitle">Windows Platform Layer</button>
-<div class="projectSection">
-	<div class="projectSectionTitle">0. Source Code</div>
-	<div class="projectSectionText">
-	The source code for the finished program can be found here: <a target="_blank" href="https://github.com/Alexander-Garza/windowsPlatformLayer">https://github.com/Alexander-Garza/windowsPlatformLayer</a>
-	</div>
+*{
+    box-sizing:border-box;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    font-size: 14px;
+}
 
-	<div class="projectSectionTitle">1. WinMain</div>
-	<div class="projectSectionText">
-	First, we start with WinMain. This is the main entry point for windows apps.
-	</div>
-	<pre class="projectCode">
+html, body{
+    min-height: 100%;
+    background: black;
+    color: rgb(187 187 0);
+
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+::-moz-selection{ /* Code for Firefox */
+    color: black;
+    background: #bbbb9c;
+}
+
+::selection{
+    color: black;
+    background: #bbbb9c;
+}
+a:link{
+    color: rgb(40 100 0);
+    text-decoration: none;
+    font-size: inherit;
+}
+
+a:visited{
+    color: rgb(40 100 0);
+    text-decoration: none;
+    font-size: inherit;
+}
+
+a:hover{
+    color: rgb(60 150 0);
+    text-decoration: none;
+    font-size: inherit;
+}
+
+a:active{
+    color: white;
+    text-decoration: none;
+    font-size: inherit;
+}
+
+.name{
+    text-align:center;
+    font-size: 3.5rem;
+}
+
+.github{
+    line-height: 1;
+    font-size: 2.5rem;
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+}
+
+.project{
+    padding-top: 3vh;
+    padding-left: 00%;
+    width: 090%;
+    padding-left: 05%;
+}
+
+.title{
+    background: inherit;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: auto;
+    color: rgb(40 100 0);
+}
+.title:hover{
+    color: rgb(60 150 0);
+    cursor: pointer;
+}
+
+.section{
+    padding-left: 3%;
+    width: 90%;
+
+    padding-bottom: 9vh;
+}
+
+li{
+    font-size: 1.2rem;
+}
+.date{
+    line-height: 1.4;
+    font-size: 1.1rem;
+}
+
+.section_title{
+    padding-top: 3vh;
+    font-size: 1.5rem;
+    padding-bottom: 00vh;
+    font-weight: bold;
+    color: rgb(175 128 0);
+}
+
+.section_text{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    line-height: 1.4;
+    font-size: 1.1rem;
+    color: hsl(210deg 33% 96%);
+    color: white;
+}
+
+.code{
+    display: block;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    background-color: hsl(0deg 0% 13%);
+    color: hsl(210deg 33% 96%);
+    text-align: left;
+    overflow: auto;
+    -webkit-user-select: all;
+    user-select: all;
+    border-radius: 15px;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+        </style>
+
+        <link rel="icon" href="icon.svg" sizes="any" type="image/svg+xml">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h2 class="github"><a target="_blank" href="https://github.com/Alexander-Garza">Alexander Garza</a></h2>
+
+        <div id="style" class="project">
+            <button class="title">Style Guide</button>
+            <div class="section">
+            <div class="date">Last Update On: Tue Feb 25 2025</div>
+
+                <div class="section_title">Checklist</div>
+                <div class="section_text">
+                    <li>
+                        short names, while long enough to understand 
+                    </li>
+                    <li>
+                        as few comments possible
+                    </li>
+                    <li>
+                        consistent terminology (Ex. count or amount or number. Choose one don't mix and match)
+                    </li>
+                    <li>
+                        snake_case > camelCase
+                    </li>
+                    <li>
+                        globals should be ALL CAPS
+                    </li>
+                    <li>
+                        lowercase everything else
+                    </li>
+                    <li>
+                        sections of code should begin with /* Section Name */
+                    </li>
+                    <li>
+                        subsections of code should begine with // subsection
+                    </li>
+                    <li>
+                        functions should exist only if they get called multiple times
+                    </li>
+                    <li>
+                        Simple operations are easy to understand
+                    </li>
+                </div>
+                <div class="section_title">Readability</div>
+                <div class="section_text">
+                    Readability can aid in making code easier to understand. 
+                    The less energy you spend on reading the code, the more energy you have to understand/comprehend what you read. 
+                    Naming variables is the most important part of making readable code. 
+                    If the name makes sense then you don't have to translate it into a name that does. 
+                    The better the name the quicker the connection from the name to the concept gets formed. 
+                    Consistent terminology can help readers cache understanding and apply it to other parts of the code. 
+                    The code that is fastest and easiest to understand is code that doesn't exist.
+                    The less code the better.
+                    The more times I spend writing a thing, the better and fewer lines/words I have to write.
+                    The easier it gets to read and understand. 
+                </div>
+
+                <div class="section_title">Search</div>
+                <div class="section_text">
+                    Consistent terminology helps search, for example trying to find how many x you have you can search for _count or where _index is being updated.
+                    Searchability is important when you have questions about how/Your code being searchable is a sign that your code has a structure to it. 
+                    By your code having a structure it means you know where to look to find your answer.
+                </div>
+                <div class="section_title">Functions</div>
+                <div class="section_text">
+                    Anybody can understand simple operations like add, subtract, multiply, first element, last element, loops, etc.
+                    Therefore, the more simple operations you have in a function the easier it gets to understand. 
+                    The less you have to jump through a file the easier it gets to read and understand several minutes or months later. 
+                    Try to write functions as many lines as it takes, instead of a small function with a ton of function calls.
+                    Sometimes abstractions can help like with complicated math.
+                    But, other times it makes more sense to do a little math and add a comment and maybe some curly braces.
+                </div>
+                <div class="section_text">
+                    So, when should you add a function?
+                    The benefit of a function is less mental bandwidth.
+                    The cost of a function is harder to read without knowledge of the function. 
+                    To make up for this cost, functions should be used sparingly and should have good names.
+                    Good names encapsulate the idea of the function like add_vectors() or move_object_to().
+                    It's easier to name a function if the function only does one simple thing.
+                </div>
+                <div class="section_title">Single File</div>
+                <div class="section_text">
+                    <li>
+                        searching easier 
+                    </li>
+                    <li>
+                        faster compilation
+                    </li>
+                    <li>
+                        easier to read on github
+                    </li>
+                </div>
+                <div class="section_text">
+                    Everybody has their own way of breaking a problem up into multiple files. One project might have their draw triangle function in draw.c while another has developed their own graphics pipeline which starts in render_input.c then goes to render_processing.c then into batch_processing.c then batch_resolve.c. Every time you have to stop what you are reading and find the next part of code, the harder it becomes to understand in one read. It just adds mental bloat to readers.
+                </div>
+
+
+                <div class="section_title">Example Code</div>
+                <pre class="code">/* Input */
+#define MAX_KEY_COUNT 4
+enum key_code{
+key_up,
+key_left,
+key_right,
+key_down,
+key_count
+};
+
+struct input_state{
+int key_count;
+int key_pressed[MAX_KEY_COUNT];
+float mouse_x_change;
+float mouse_y_change;
+};
+typedef struct input_state input_state;
+
+v3 update_move_vector(input_state* input, v3& direction)
+{
+  assert(input);
+  v3 result = {0};
+
+  // keys
+  result.x = input->key_pressed[key_left] - input->key_pressed[key_right];
+  result.z = input->key_pressed[key_up] - input->key_pressed[key_down];
+
+  // mouse
+  rotate_direction(input->mouse_x_change, input->mouse_y_change, direction);
+
+  return result;
+}</pre>
+            </div>
+        </div>
+
+        <div id="windowsPlatformLayer" class="project">
+            <button class="title">Windows Platform Layer</button>
+            <div class="section">
+                <div class="date">Last Update On: Tue Feb 25 2025</div>
+                <div class="section_title">0. Source Code</div>
+                <div class="section_text">
+                    The source code for the finished program can be found here: <a target="_blank" href="https://github.com/Alexander-Garza/windowsPlatformLayer">https://github.com/Alexander-Garza/windowsPlatformLayer</a>
+                </div>
+
+                <div class="section_title">1. WinMain</div>
+                <div class="section_text">
+                    First, we start with WinMain. This is the main entry point for windows apps.
+                </div>
+                <pre class="code">
 #include &ltwindows.h&gt
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, INT nCmdShow)
 {
     return 0;
 }</pre>
-	<div class="projectSectionText">
-	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point">https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point</a>
-	</div>
+                <div class="section_text">
+                    For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point">https://docs.microsoft.com/en-us/windows/win32/learnwin32/winmain--the-application-entry-point</a>
+                </div>
 
-	<div class="projectSectionTitle">2. Callback Function</div>
-	<div class="projectSectionText">
-	Next, we need a callback function. This function recieves unhandled window messages sent to our application. The following code is an example of how to handle window close message.
-	</div>
-	<pre class="projectCode">
+                <div class="section_title">2. Callback Function</div>
+                <div class="section_text">
+                    Next, we need a callback function. This function recieves unhandled window messages sent to our application. The following code is an example of how to handle window close message.
+                </div>
+                <pre class="code">
 unsigned int isRunning = 1;
 LRESULT CALLBACK MainWndProc(
-		HWND hwnd,        // handle to window
-		UINT uMsg,        // message identifier
-		WPARAM wParam,    // first message parameter
-		LPARAM lParam)    // second message parameter
+    HWND hwnd,        // handle to window
+    UINT uMsg,        // message identifier
+    WPARAM wParam,    // first message parameter
+    LPARAM lParam)    // second message parameter
 { 
-	LRESULT result = 0;
-	switch (uMsg) 
-	{ 
-		case WM_CREATE: 
-			// Initialize the window. 
-			break;
+  LRESULT result = 0;
+  switch (uMsg) 
+  { 
+    case WM_CREATE: 
+      // Initialize the window. 
+      break;
 
-		case WM_PAINT: 
-			// Paint the window's client area. 
-			break;
+    case WM_PAINT: 
+      // Paint the window's client area. 
+      break;
 
-		case WM_SIZE: 
-			// Set the size and position of the window. 
-			break;
+    case WM_SIZE: 
+      // Set the size and position of the window. 
+      break;
 
-		case WM_DESTROY: 
-			// Clean up window-specific data objects. 
-			isRunning = 0;
-			break;
+    case WM_DESTROY: 
+      // Clean up window-specific data objects. 
+      isRunning = 0;
+      break;
 
-			// 
-			// Process other messages. 
-			// 
+      // 
+      // Process other messages. 
+      // 
 
-		default: 
-			result = DefWindowProc(hwnd, uMsg, wParam, lParam); 
-	} 
-	return result; 
+    default: 
+      result = DefWindowProc(hwnd, uMsg, wParam, lParam); 
+  } 
+  return result; 
 }</pre>
-	<div class="projectSectionText">
-	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues">https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues</a>
-	</div>
+                <div class="section_text">
+                    For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues">https://docs.microsoft.com/en-us/windows/win32/winmsg/about-messages-and-message-queues</a>
+                </div>
 
-	<div class="projectSectionTitle">3. Setting Up A Window</div>
-	<div class="projectSectionText">
-	Now we need to fill out information for creating a window. This is done by registering a window class.
-	</div>
-	<pre class="projectCode">
+                <div class="section_title">3. Setting Up A Window</div>
+                <div class="section_text">
+                    Now we need to fill out information for creating a window. This is done by registering a window class.
+                </div>
+                <pre class="code">
 WNDCLASSA windowClass = {};
 windowClass.style 			= CS_HREDRAW|CS_VREDRAW|CS_OWNDC;
 windowClass.lpfnWndProc 	= MainWndProc;
@@ -98,157 +364,143 @@ windowClass.hIcon         = LoadIcon(NULL,  IDI_APPLICATION);
 windowClass.lpszClassName = "windowClassName";
 
 ATOM windowClassIsRegistered = RegisterClassA(&windowClass);</pre>
-	<div class="projectSectionText">
-	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassa">https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassa</a>
-	</div>
+                <div class="section_text">
+                    For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassa">https://docs.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-wndclassa</a>
+                </div>
 
-	<div class="projectSectionTitle">4. Creating A Window</div>
-	<div class="projectSectionText">
-	Once we have a window class register, we are ready to create a window. 
-	</div>
-	<pre class="projectCode">
+                <div class="section_title">4. Creating A Window</div>
+                <div class="section_text">
+                    Once we have a window class register, we are ready to create a window. 
+                </div>
+                <pre class="code">
 unsigned int windowWidth = 1920;
 unsigned int windowHeight = 1080;
 HWND windowHandle = CreateWindowExA(
-		0, 
-		windowClass.lpszClassName, 
-		"Application Name", 
-		WS_OVERLAPPEDWINDOW, 
-		CW_USEDEFAULT, 
-		CW_USEDEFAULT, 
-		windowWidth, 
-		windowHeight, 
-		0, 
-		0, 
-		hPrevInstance, 
-		0);
+    0, 
+    windowClass.lpszClassName, 
+    "Application Name", 
+    WS_OVERLAPPEDWINDOW, 
+    CW_USEDEFAULT, 
+    CW_USEDEFAULT, 
+    windowWidth, 
+    windowHeight, 
+    0, 
+    0, 
+    hPrevInstance, 
+    0);
 ShowWindow(windowHandle, SW_SHOW);
 UpdateWindow(windowHandle);</pre>
-	<div class="projectSectionText">
-	We choose to show window after creating it via ShowWindow(). UpdateWindow() creates a paint message that our callback function will take care of. Alternatively, our windowStyle attribute could be set to WS_OVERLAPPED|WS_VISIBLE.
-	</div>
-	<div class="projectSectionText">
-	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa</a>
-	</div>
+                <div class="section_text">
+                    We choose to show window after creating it via ShowWindow(). UpdateWindow() creates a paint message that our callback function will take care of. Alternatively, our windowStyle attribute could be set to WS_OVERLAPPED|WS_VISIBLE.
+                </div>
+                <div class="section_text">
+                    For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-createwindowexa</a>
+                </div>
 
-	<div class="projectSectionTitle">5. Setting Up A Loop</div>
-	<div class="projectSectionText">
-	Now we need to create a loop so our app doesn't close till we tell it to.
-	</div>
-	<pre class="projectCode">
+                <div class="section_title">5. Setting Up A Loop</div>
+                <div class="section_text">
+                    Now we need to create a loop so our app doesn't close till we tell it to.
+                </div>
+                <pre class="code">
 while(isRunning)
 {
 }</pre>
-	<div class="projectSectionText">
-	We currently aren't able to escape this loop. So next let's add some input processing to our application.
-	</div>
+                <div class="section_text">
+                    We currently aren't able to escape this loop. So next let's add some input processing to our application.
+                </div>
 
 
-	<div class="projectSectionTitle">6. Process Keyboard Input</div>
-	<div class="projectSectionText">
-	There are two ways of getting input on windows. One way is to get the keyState. 
-	For example:
-	</div>
-	<pre class="projectCode">
+                <div class="section_title">6. Process Keyboard Input</div>
+                <div class="section_text">
+                    There are two ways of getting input on windows. One way is to get the keyState. 
+                    For example:
+                </div>
+
+                <pre class="code">
 int jKeyCode = (int)'J';
 SHORT jKeyStatus = GetKeyState(jKeyCode);
 unsigned int jKeyDown = (jKeyStatus & 0x8000);
 if(jKeyDown)
 {
-	isRunning = 0;
+  isRunning = 0;
 }</pre>
-	<div class="projectSectionText">
-	For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate</a>
-	</div>
-	<div class="projectSectionText">
-	However the way I prefer to do it is by processing window messages. First we need to loop through the messages that windows sent using the PeekMessage() function. Then we can process it with a switch statement. 
-	In our app we only handle key presses. It is possible to handle more messages such as: WM_QUIT, WM_LBUTTONDOWN, WM_PAINT, and many others. However, there are messages which are sent directly to the callback function such as: WM_SIZE, WM_DESTROY and others.
-	</div>
-	<pre class="projectCode">
-MSG message;
+                <div class="section_text">
+                    For more info: <a target="_blank" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate">https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate</a>
+                </div>
+                <div class="section_text">
+                    However the way I prefer to do it is by processing window messages. First we need to loop through the messages that windows sent using the PeekMessage() function. Then we can process it with a switch statement. 
+                    In our app we only handle key presses. It is possible to handle more messages such as: WM_QUIT, WM_LBUTTONDOWN, WM_PAINT, and many others. However, there are messages which are sent directly to the callback function such as: WM_SIZE, WM_DESTROY and others.
+                </div>
+                <pre class="code">MSG message;
 while(isRunning)
 {
-	// Process Input Messages //
-	while(1)
-	{
-		BOOL gotMessage = FALSE;
-		// NOTE: We don't want to handle WM_PAINT messages here
-		gotMessage = PeekMessage(&message, 0, 0, WM_PAINT -1, PM_REMOVE);
-		if(!gotMessage)
-		{
-			gotMessage = PeekMessage(&message, 0, WM_PAINT+1, 0xFFFFFFFF, PM_REMOVE);
-		}
-		if(!gotMessage)
-		{
-			break;
-		}
-		switch(message.message)
-		{
-			case WM_SYSKEYDOWN:
-			case WM_SYSKEYUP:
-			case WM_KEYDOWN:
-			case WM_KEYUP:
-				unsigned int keyCode = (unsigned int)message.wParam;
-				unsigned int altKeyWasDown = (message.lParam & (1 &lt&lt 29));
-				unsigned int wasDown = ((message.lParam & (1 &lt&lt 30)) != 0);
-				unsigned int isDown = ((message.lParam & (1 &lt&lt 31)) == 0);
-				if(wasDown != isDown)
-				{
-					if(isDown)
-					{
-						if((keyCode == VK_F4) && altKeyWasDown)
-						{
-							isRunning = 0;
-						}
-					}
-					else if(wasDown)
-					{
-					}
-				}
-				break;
-			default:
-				// NOTE: The rest we send to callback function
-				TranslateMessage(&message);
-				DispatchMessageA(&message);
-				break;
-		}
-	}
+  // Process Input Messages //
+  while(1)
+  {
+    BOOL gotMessage = FALSE;
+    // NOTE: We don't want to handle WM_PAINT messages here
+    gotMessage = PeekMessage(&message, 0, 0, WM_PAINT -1, PM_REMOVE);
+    if(!gotMessage)
+    {
+      gotMessage = PeekMessage(&message, 0, WM_PAINT+1, 0xFFFFFFFF, PM_REMOVE);
+    }
+    if(!gotMessage)
+    {
+      break;
+    }
+    switch(message.message)
+    {
+      case WM_SYSKEYDOWN:
+      case WM_SYSKEYUP:
+      case WM_KEYDOWN:
+      case WM_KEYUP:
+        unsigned int keyCode = (unsigned int)message.wParam;
+        unsigned int altKeyWasDown = (message.lParam & (1 &lt&lt 29));
+        unsigned int wasDown = ((message.lParam & (1 &lt&lt 30)) != 0);
+        unsigned int isDown = ((message.lParam & (1 &lt&lt 31)) == 0);
+        if(wasDown != isDown)
+        {
+          if(isDown)
+          {
+            if((keyCode == VK_F4) && altKeyWasDown)
+            {
+              isRunning = 0;
+            }
+          }
+          else if(wasDown)
+          {
+          }
+        }
+        break;
+      default:
+        // NOTE: The rest we send to callback function
+        TranslateMessage(&message);
+        DispatchMessageA(&message);
+        break;
+    }
+  }
 }</pre>
-	<div class="projectSectionTitle">7. Process Mouse Input</div>
-	<div class="projectSectionText">
-	coming soon...
-	</div>
-	<pre class="projectCode">
-	</pre>
-	
-</div>
+            </div>
+        </div>
+    </body>
 
-<div id="OpenGLOnWindows" class="project">
-<button class="projectTitle">OpenGL on Windows</button>
-<div class="projectSection">
-	<div class="projectSectionTitle">Coming soon</div>
-</div>
-</div>
-
-</body>
-
-<script>
-var projectTitles = document.querySelectorAll(".projectTitle");
-for(let i = 0; i < projectTitles.length; i++)
-{
-	projectTitles[i].addEventListener("click", toggleSection);
-	projectTitles[i].nextElementSibling.style.display = 'none';
-}
-function toggleSection()
-{
-	if(this.nextElementSibling.style.display == 'none')
-	{
-		this.nextElementSibling.style.display = '';
-	}
-	else
-	{
-		this.nextElementSibling.style.display = 'none';
-	}
-}
-</script>
+    <script>
+        var projectTitles = document.querySelectorAll(".title");
+        for(let i = 0; i < projectTitles.length; i++)
+        {
+            projectTitles[i].addEventListener("click", toggleSection);
+            projectTitles[i].nextElementSibling.style.display = 'none';
+        }
+        function toggleSection()
+        {
+            if(this.nextElementSibling.style.display == 'none')
+            {
+                this.nextElementSibling.style.display = '';
+            }
+            else
+            {
+                this.nextElementSibling.style.display = 'none';
+            }
+        }
+    </script>
 </html>
